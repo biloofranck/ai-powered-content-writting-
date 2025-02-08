@@ -23,3 +23,7 @@ const getGrammarAndStyleSuggestions = async (text: string) => {
     throw new Error('Error generating grammar and style suggestions');
   }
 };
+
+export default{
+    getGrammarAndStyleSuggestions
+}

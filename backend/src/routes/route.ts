@@ -38,24 +38,25 @@ route.post('/tone-readability', async (req: Request, res: Response): Promise<voi
 });
 
 
-route.post('/content-template', async (req:Request, res:Response):Promise<void> => {
+route.post('/content-template', async (req: Request, res: Response): Promise<void> => {
     const { type } = req.body;
     try {
-      const result = await generateContentTemplate(type);
-      res.json({ result });
+        const result = await generateContentTemplate(type);
+        res.json({ result });
     } catch (error) {
-      res.status(500).send(error);
+        res.status(500).send(error);
     }
-  });
+});
 
 
-  route.post('/seo-keywords', async (req:Request, res:Response):Promise<void> => {
+route.post('/seo-keywords', async (req: Request, res: Response): Promise<void> => {
     const { text } = req.body;
     try {
-      const result = await seoSuggestionWords(text);
-      res.json({ result });
+        const result = await seoSuggestionWords(text);
+        res.json({ result });
     } catch (error) {
-      res.status(500).send(error);
+        res.status(500).send(error);
     }
-  });
+});
 
+export default route;

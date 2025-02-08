@@ -1,4 +1,6 @@
 import axios from 'axios';
+import {config} from "dotenv"
+config()
 
 const openaiApiUrl = 'https://api.openai.com/v1/completions';
 const apiKey = process.env.OPEN_AI_KEY;

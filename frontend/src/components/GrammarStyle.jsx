@@ -7,7 +7,7 @@ function GrammarStyle() {
 
   const handleSubmit = async () => {
     try {
-      const res = await axios.post('http://localhost:8000/api/content/grammar-style', { text });
+      const res = await axios.post('http://localhost:8000', { text });
       setResult(res.data.result);
     } catch (err) {
       console.error(err);

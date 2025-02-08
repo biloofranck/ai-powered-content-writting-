@@ -1,11 +1,11 @@
-import express, { Request, Response } from "express"
+import { Request, Response, Router } from "express"
 import grammarController from "../controllers/grammarController"
 import plagiarismController from "../controllers/plagiarismController"
 import generateContentTemplate from "../controllers/templateController"
 import toneController from "../controllers/toneController"
 import seoSuggestionWords from "../controllers/seoSuggestionController"
 
-const route = express.Router();
+const route = Router();
 
 route.post('/', async (req: Request, res: Response): Promise<void> => {
     const { text } = req.body;
@@ -30,7 +30,7 @@ route.post('/plagiarism-check', async (req: Request, res: Response): Promise<voi
 route.post('/tone-readability', async (req: Request, res: Response): Promise<void> => {
     const { text } = req.body;
     try {
-        const result = toneController(text);
+        const result = toneController.analyzeToneAndReadability(text);
         res.json({ result });
     } catch (error) {
         res.status(500).send(error);

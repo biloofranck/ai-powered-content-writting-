@@ -27,4 +27,12 @@ route.post('/', async (req:Request, res:Response) => {
     }
   });
 
-  
+  route.post('/tone-readability', async (req: Request, res: Response) => {
+    const { text } = req.body;
+    try {
+      const result = toneController (text);
+      res.json({ result });
+    } catch (error) {
+      res.status(500).send(error);
+    }
+  });

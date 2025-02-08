@@ -47,3 +47,15 @@ route.post('/content-template', async (req:Request, res:Response):Promise<void> 
       res.status(500).send(error);
     }
   });
+
+
+  route.post('/seo-keywords', async (req:Request, res:Response):Promise<void> => {
+    const { text } = req.body;
+    try {
+      const result = await seoSuggestionWords(text);
+      res.json({ result });
+    } catch (error) {
+      res.status(500).send(error);
+    }
+  });
+
